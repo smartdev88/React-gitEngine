@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class User extends Component {
 	render() {
 
         //la notion de destructing
-        const { avatar_url, login, html_url, repos_url } = this.props.user;
+        const { avatar_url, login, repos_url } = this.props.user;
 		return (
 			<div>
 				<div class="card">
@@ -13,9 +14,9 @@ export class User extends Component {
 						{/* <h4 class="card-title">{this.props.user.login}</h4> */}
 						<h4 class="card-title">{login}</h4>
 						<p class="card-text">
-							<a href={html_url} className="btn btn-success">
+							<Link to={'/users/' + login} className="btn btn-success">
 								Show more
-							</a>
+							</Link>
 							<a href={repos_url} className="btn btn-warning">
 								Repositories
 							</a>
